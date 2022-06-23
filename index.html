@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sample </title>
+        <title>CollegeStudent </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet"
@@ -13,53 +13,65 @@
         </head>
         <body>
         <div class="container">
-        <h2>form</h2>
+        <h2>Student Form</h2>
         <form id="empForm" method="post">
         <div class="form-group">
-        <span><label for="empId">Employee ID:</label> <label id="empIdMsg">
+        <span><label for="roll">Roll No:</label> <label id="rollMsg">
         </label></span>
-        <input type="text" class="form-control" name="empId" id="empId"
-        placeholder="Enter Employee ID" required>
+        <input type="text" class="form-control" name="Roll No" id="roll"
+        placeholder="Enter Roll No" required>
         </div>
         <div class="form-group">
-        <label for="empName">Employee Name:</label>
-        <input type="text" class="form-control" id="empName"
-        placeholder="Enter Employee Name" name="empName">
+        <label for="Name">Name:</label>
+        <input type="text" class="form-control" id="name"
+        placeholder="Enter Student Name" name="Name">
         </div>
         <div class="form-group">
-        <label for="empEmail">Email:</label>
-        <input type="email" class="form-control" id="empEmail"
-        placeholder="Enter Employee Email" name="empEmail">
+            <label for="Name">Branch:</label>
+            <input type="text" class="form-control" id="branch"
+            placeholder="Enter Branch Name" name="Branch">
+            </div>
+        <div class="form-group">
+        <label for="Email">Email:</label>
+        <input type="email" class="form-control" id="email"
+        placeholder="Enter Student Email" name="Email">
         </div>
-        <input type="button" class="btn btn-primary" id="empSave" value="Save"
-        onclick="saveEmployee();">
+        <input type="button" class="btn btn-primary" id="stuSave" value="Save"
+        onclick="saveStudent();">
         </form>
         </div>
         <script>
-        $("#empId").focus();
+        $("#roll").focus();
         function validateAndGetFormData() {
-        var empIdVar = $("#empId").val();
-        if (empIdVar === "") {
-        alert("Employee ID Required Value");
-        $("#empId").focus();
+        var rollVar = $("#roll").val();
+        if (rollVar === "") {
+        alert("Roll No Required Value");
+        $("#roll").focus();
         return "";
         }
-        var empNameVar = $("#empName").val();
-        if (empNameVar === "") {
-        alert("Employee Name is Required Value");
-        $("#empName").focus();
+        var NameVar = $("#name").val();
+        if (NameVar === "") {
+        alert("Student Name is Required Value");
+        $("#name").focus();
         return "";
         }
-        var empEmailVar = $("#empEmail").val();
-        if (empEmailVar === "") {
-        alert("Employee Email is Required Value");
-        $("#empEmail").focus();
+        var Branchvar = $("#branch").val();
+        if (Branchvar === "") {
+        alert("Student Name is Required Value");
+        $("#branch").focus();
+        return "";
+        }
+        var EmailVar = $("#email").val();
+        if (EmailVar === "") {
+        alert("Student Email is Required Value");
+        $("#email").focus();
         return "";
         }
         var jsonStrObj = {
-        empId: empIdVar,
-        empName: empNameVar,
-        empEmail: empEmailVar,
+        roll: rollVar,
+        name: NameVar,
+        branch: Branchvar,
+        email: EmailVar,
         };
         return JSON.stringify(jsonStrObj);
         }
@@ -92,22 +104,22 @@
         return jsonObj;
         }
         function resetForm() {
-        $("#empId").val("")
-        $("#empName").val("");
-        $("#empEmail").val("");
-        $("#empId").focus();
+        $("#roll").val("")
+        $("#name").val("");
+        $("#branch").val("");
+        $("#email").val("");
+        $("#roll").focus();
         }
-        function saveEmployee() {
+        function saveStudent() {
         var jsonStr = validateAndGetFormData();
         if (jsonStr === "") {
         return;
         }
         var putReqStr = createPUTRequest("90938715|-31949287706214207|90939641",
-        jsonStr, "SAMPLE", "EMP-REL");
+        jsonStr, "CollegeStudent", "BRANCH");
         alert(putReqStr);
         jQuery.ajaxSetup({async: false});
-        var resultObj = executeCommand(putReqStr,
-        "http://api.login2explore.com:5577", "/api/iml");
+        var resultObj = executeCommand(putReqStr,"http://api.login2explore.com:5577", "/api/iml");
         alert(JSON.stringify(resultObj));
         jQuery.ajaxSetup({async: true});
         resetForm();
