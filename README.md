@@ -1,5 +1,5 @@
 
-# JsonPowerDB Tutorial
+# JsonPowerDB Tutorial "Student Form"
 
 
  
@@ -14,8 +14,24 @@
 23/06/2022
 ![image](https://user-images.githubusercontent.com/68528688/175254291-11aec92d-4a2a-446f-9afb-6af505fdbd6f.png)
 
+## Table of contents
+Screensht
+License
+Readme
+Index.html
+
+## Scope of functionalities
+PUT MEDTHOD GET STUDENT DATA LIKE
+            NAME, BRANCH, ROLL NO, EMAIL ID
+
 Example of Use
 ![image](https://user-images.githubusercontent.com/68528688/175254107-23c0b10e-b27f-4251-a639-6f6f6c9f076b.png)
 
+## Project Status
+   Only Takes New Data no update or delete option currently
+   
+         
+            
+            
 
     
